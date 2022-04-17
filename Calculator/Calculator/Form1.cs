@@ -54,7 +54,14 @@ namespace Calculator
                             OperatorsMemory.Clear();
                         }
                     }
-                    textBox1.Text = oper;
+                    if (!textBox2.Text.Equals("ERROR"))
+                    {
+                        textBox1.Text = oper;
+                    }
+                    else
+                    {
+                        textBox1.Text = "";
+                    }
                 }
             }
         }
@@ -137,15 +144,18 @@ namespace Calculator
         {
             if (!textBox2.Text.Equals("ERROR"))
             {
-                if (!Operators.Contains(textBox1.Text) && textBox1.Text != "")
+                if (!textBox1.Text.Equals("0"))
                 {
-                    textBox1.Text += "0";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "0";
+                    if (!Operators.Contains(textBox1.Text))
+                    {
+                        textBox1.Text += "0";
+                    }
+                    else
+                    {
+                        OperatorsMemory.Add(textBox1.Text);
+                        textBox1.Clear();
+                        textBox1.Text += "0";
+                    }
                 }
             } 
         }
@@ -218,6 +228,25 @@ namespace Calculator
         {
             operation("*");
             textBox1.Text = "";
+        }
+
+        // Invert button
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (!textBox2.Text.Equals("ERROR"))
+            {
+                if (!Operators.Contains(textBox1.Text))
+                {
+                    if (!string.IsNullOrEmpty(textBox1.Text))
+                    {
+                        if (textBox1.Text != "0")
+                        {
+                            decimal invert = Convert.ToDecimal(textBox1.Text) * (-1);
+                            textBox1.Text = invert.ToString();
+                        }
+                    }
+                }
+            }
         }
     }
 }

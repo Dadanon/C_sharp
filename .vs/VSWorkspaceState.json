@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Calculator",
     "\\Principles",
     "\\Principles\\Abstraction",
     "\\Principles\\Inheritance"
   ],
-  "SelectedNode": "\\Principles\\Inheritance\\1.cs",
+  "SelectedNode": "\\Calculator\\Calculator",
   "PreviewInSolutionExplorer": false
 }

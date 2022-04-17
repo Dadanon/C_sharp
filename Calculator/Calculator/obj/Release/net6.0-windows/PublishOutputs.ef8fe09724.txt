@@ -1,0 +1,5 @@
+C:\c_sharp\Calculator\Calculator.exe
+C:\c_sharp\Calculator\Calculator.dll
+C:\c_sharp\Calculator\Calculator.deps.json
+C:\c_sharp\Calculator\Calculator.runtimeconfig.json
+C:\c_sharp\Calculator\Calculator.pdb
