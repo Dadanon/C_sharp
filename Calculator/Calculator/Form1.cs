@@ -2,9 +2,82 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
-        private List<decimal> NumbersMemory = new List<decimal>();
+        private List<decimal> NumbersMemory = new List<decimal>(2);
         private List<string> OperatorsMemory = new List<string>(1);
         private List<string> Operators = new List<string>() { "+", "-", "*", "/"};
+
+        private void operation(string oper)
+        {
+            if (!textBox2.Text.Equals("ERROR"))
+            {
+                if (!string.IsNullOrEmpty(textBox2.Text) | !string.IsNullOrEmpty(textBox1.Text) && !textBox1.Text.EndsWith(","))
+                {
+                    if (NumbersMemory.Count == 0)
+                    {
+                        NumbersMemory.Add(Convert.ToDecimal(textBox1.Text));
+                    }
+                    else if ((NumbersMemory.Count == 1) && (!Operators.Contains(textBox1.Text)))
+                    {
+                        if (!string.IsNullOrEmpty(textBox1.Text))
+                        {
+                            NumbersMemory.Add(Convert.ToDecimal(textBox1.Text));
+                            decimal result = 0;
+                            switch (OperatorsMemory[0])
+                            {
+                                case "+":
+                                    result = NumbersMemory[0] + NumbersMemory[1];
+                                    textBox2.Text = result.ToString();
+                                    break;
+                                case "-":
+                                    result = NumbersMemory[0] - NumbersMemory[1];
+                                    textBox2.Text = result.ToString();
+                                    break;
+                                case "/":
+                                    if (NumbersMemory[1] != 0)
+                                    {
+                                        result = NumbersMemory[0] / NumbersMemory[1];
+                                        textBox2.Text = result.ToString();
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        textBox2.Text = "ERROR";
+                                        break;
+                                    }
+                                case "*":
+                                    result = NumbersMemory[0] * NumbersMemory[1];
+                                    textBox2.Text = result.ToString();
+                                    break;
+                            }
+                            NumbersMemory.Clear();
+                            NumbersMemory.Add(result);
+                            OperatorsMemory.Clear();
+                        }
+                    }
+                    textBox1.Text = oper;
+                }
+            }
+        }
+
+        private void click(string number)
+        {
+            if (!textBox2.Text.Equals("ERROR"))
+            {
+                if (!textBox1.Text.Equals("0"))
+                {
+                    if (!Operators.Contains(textBox1.Text))
+                    {
+                        textBox1.Text += number;
+                    }
+                    else
+                    {
+                        OperatorsMemory.Add(textBox1.Text);
+                        textBox1.Clear();
+                        textBox1.Text += number;
+                    }
+                }
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -17,414 +90,115 @@ namespace Calculator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "1";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "1";
-                }
-            }
+            click("1");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "2";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "2";
-                }
-            }
+            click("2");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "3";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "3";
-                }
-            }
+            click("3");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "4";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "4";
-                }
-            }
+            click("4"); 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "5";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "5";
-                }
-            }
+            click("5");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "6";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "6";
-                }
-            }
+            click("6");
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "7";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "7";
-                }
-            }
+            click("7");
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
-            {
-                if (!Operators.Contains(textBox1.Text))
-                {
-                    textBox1.Text += "8";
-                }
-                else
-                {
-                    OperatorsMemory.Add(textBox1.Text);
-                    textBox1.Clear();
-                    textBox1.Text += "8";
-                }
-            }
+            click("8");
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("0"))
+            click("9");
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (!textBox2.Text.Equals("ERROR"))
             {
-                if (!Operators.Contains(textBox1.Text))
+                if (!Operators.Contains(textBox1.Text) && textBox1.Text != "")
                 {
-                    textBox1.Text += "9";
+                    textBox1.Text += "0";
                 }
                 else
                 {
                     OperatorsMemory.Add(textBox1.Text);
                     textBox1.Clear();
-                    textBox1.Text += "9";
+                    textBox1.Text += "0";
                 }
-            }
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            if (!Operators.Contains(textBox1.Text) && textBox1.Text != "")
-            {
-                textBox1.Text += "0";
-            }
-            else
-            {
-                OperatorsMemory.Add(textBox1.Text);
-                textBox1.Clear();
-                textBox1.Text += "0";
-            }
+            } 
         }
 
         // Divide button
         private void button11_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox1.Text) | !string.IsNullOrEmpty(textBox2.Text))
-            {
-                if (!textBox1.Text[^1].Equals(","))
-                {
-                    if (!Operators.Contains(textBox1.Text))
-                    {
-                        NumbersMemory.Add(Convert.ToDecimal(textBox1.Text)); ;
-                        textBox1.Text = "/";
-                        if (OperatorsMemory.Count != 0)
-                        {
-                            decimal result;
-                            switch (OperatorsMemory[0])
-                            {
-                                case "+":
-                                    result = NumbersMemory[0] + NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "-":
-                                    result = NumbersMemory[0] - NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "/":
-                                    if (NumbersMemory[1] != 0)
-                                    {
-                                        result = NumbersMemory[0] / NumbersMemory[1];
-                                        textBox2.Text = result.ToString();
-                                        NumbersMemory.Clear();
-                                        NumbersMemory.Add(result);
-                                    }
-                                    else
-                                    {
-                                        textBox2.Text = "ERROR";
-                                        NumbersMemory.Clear();
-                                    }
-                                    break;
-                                case "*":
-                                    result = NumbersMemory[0] * NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                            }
-                        }
-                        OperatorsMemory.Clear();
-                    }
-                }
-            }
+            operation("/");
         }
 
         // Multiply button
         private void button12_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox1.Text) | !string.IsNullOrEmpty(textBox2.Text))
-            {
-                if (!textBox1.Text[^1].Equals(","))
-                {
-                    if (!Operators.Contains(textBox1.Text))
-                    {
-                        NumbersMemory.Add(Convert.ToDecimal(textBox1.Text)); ;
-                        textBox1.Text = "*";
-                        if (OperatorsMemory.Count != 0)
-                        {
-                            decimal result;
-                            switch (OperatorsMemory[0])
-                            {
-                                case "+":
-                                    result = NumbersMemory[0] + NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "-":
-                                    result = NumbersMemory[0] - NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "/":
-                                    if (NumbersMemory[1] != 0)
-                                    {
-                                        result = NumbersMemory[0] / NumbersMemory[1];
-                                        textBox2.Text = result.ToString();
-                                        NumbersMemory.Clear();
-                                        NumbersMemory.Add(result);
-                                    }
-                                    else
-                                    {
-                                        textBox2.Text = "ERROR";
-                                        NumbersMemory.Clear();
-                                    }
-                                    break;
-                                case "*":
-                                    result = NumbersMemory[0] * NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                            }
-                        }
-                        OperatorsMemory.Clear();
-                    }
-                }
-            }
+            operation("*");
         }
 
         // Minus button
         private void button13_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox1.Text) | !string.IsNullOrEmpty(textBox2.Text))
-            {
-                if (!textBox1.Text[^1].Equals(","))
-                {
-                    if (!Operators.Contains(textBox1.Text))
-                    {
-                        NumbersMemory.Add(Convert.ToDecimal(textBox1.Text)); ;
-                        textBox1.Text = "-";
-                        if (OperatorsMemory.Count != 0)
-                        {
-                            decimal result;
-                            switch (OperatorsMemory[0])
-                            {
-                                case "+":
-                                    result = NumbersMemory[0] + NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "-":
-                                    result = NumbersMemory[0] - NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "/":
-                                    if (NumbersMemory[1] != 0)
-                                    {
-                                        result = NumbersMemory[0] / NumbersMemory[1];
-                                        textBox2.Text = result.ToString();
-                                        NumbersMemory.Clear();
-                                        NumbersMemory.Add(result);
-                                    }
-                                    else
-                                    {
-                                        textBox2.Text = "ERROR";
-                                        NumbersMemory.Clear();
-                                    }
-                                    break;
-                                case "*":
-                                    result = NumbersMemory[0] * NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                            }
-                        }
-                        OperatorsMemory.Clear();
-                    }
-                }
-            }
+            operation("-");
         }
 
         // Plus button
         private void button14_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(textBox1.Text) | !string.IsNullOrEmpty(textBox2.Text))
-            {
-                if (!textBox1.Text[^1].Equals(","))
-                {
-                    if (!Operators.Contains(textBox1.Text))
-                    {
-                        NumbersMemory.Add(Convert.ToDecimal(textBox1.Text));
-                        textBox1.Text = "+";
-                        if (OperatorsMemory.Count != 0)
-                        {
-                            decimal result;
-                            switch (OperatorsMemory[0])
-                            {
-                                case "+":
-                                    result = NumbersMemory[0] + NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "-":
-                                    result = NumbersMemory[0] - NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "/":
-                                    if (NumbersMemory[1] != 0)
-                                    {
-                                        result = NumbersMemory[0] / NumbersMemory[1];
-                                        textBox2.Text = result.ToString();
-                                        NumbersMemory.Clear();
-                                        NumbersMemory.Add(result);
-                                    }
-                                    else
-                                    {
-                                        textBox2.Text = "ERROR";
-                                        NumbersMemory.Clear();
-                                    }
-                                    break;
-                                case "*":
-                                    result = NumbersMemory[0] * NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                            }
-                        }
-                        OperatorsMemory.Clear();
-                    }
-                }
-            }       
+        {   
+            operation("+");
         }
 
         // Delete button
         private void button15_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0)
+            if (!textBox2.Text.Equals("ERROR"))
             {
-                textBox1.Text = textBox1.Text[0..^1];
+                if (textBox1.Text.Length != 0)
+                {
+                    textBox1.Text = textBox1.Text[0..^1];
+                }
             }
         }
 
         // Comma button
         private void button16_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox1.Text))
+            if (!textBox2.Text.Equals("ERROR"))
             {
-                if (!textBox1.Text.Contains(','))
+                if (!string.IsNullOrEmpty(textBox1.Text))
                 {
-                    if (!Operators.Contains(textBox1.Text))
+                    if (!textBox1.Text.Contains(','))
                     {
-                        textBox1.Text += ",";
+                        if (!Operators.Contains(textBox1.Text))
+                        {
+                            textBox1.Text += ",";
+                        }
                     }
                 }
             }
@@ -442,57 +216,8 @@ namespace Calculator
         // Equals button
         private void button18_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox1.Text))
-            {
-                if (!textBox1.Text[^1].Equals(","))
-                {
-                    if (!Operators.Contains(textBox1.Text))
-                    {
-                        NumbersMemory.Add(Convert.ToDecimal(textBox1.Text)); ;
-                        textBox1.Text = "";
-                        if (OperatorsMemory.Count != 0)
-                        {
-                            decimal result;
-                            switch (OperatorsMemory[0])
-                            {
-                                case "+":
-                                    result = NumbersMemory[0] + NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "-":
-                                    result = NumbersMemory[0] - NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                                case "/":
-                                    if (NumbersMemory[1] != 0)
-                                    {
-                                        result = NumbersMemory[0] / NumbersMemory[1];
-                                        textBox2.Text = result.ToString();
-                                        NumbersMemory.Clear();
-                                        NumbersMemory.Add(result);
-                                    }
-                                    else
-                                    {
-                                        textBox2.Text = "ERROR";
-                                        NumbersMemory.Clear();
-                                    }
-                                    break;
-                                case "*":
-                                    result = NumbersMemory[0] * NumbersMemory[1];
-                                    textBox2.Text = result.ToString();
-                                    NumbersMemory.Clear();
-                                    NumbersMemory.Add(result);
-                                    break;
-                            }
-                        }
-                        OperatorsMemory.Clear();
-                    }
-                }
-            }
+            operation("*");
+            textBox1.Text = "";
         }
     }
 }
