@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfApp1.FourthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="FourthWindow" Height="450" Width="800">
+    <Grid Width="400" Height="300">
+        <Button Content="leftTop" Background="Beige" Width="100" Height="50" Margin="10 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="rightBottom" Background="Beige" Width="100" Height="50" Margin="0 0 10 10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Button Content="expand" FontSize="18" FontStretch="Condensed" Foreground="Red" Width="100" Height="50"/>
+    </Grid>
+</Window>

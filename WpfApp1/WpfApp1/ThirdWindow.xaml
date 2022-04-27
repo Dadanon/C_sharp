@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp1.ThirdWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ThirdWindow" Height="200" Width="400" MinHeight="200" MinWidth="400">
+    <Grid>
+        <WrapPanel>
+            <Button Background="AliceBlue" Content="button1" Height="20" Margin="5"/>
+            <Button Background="Aqua" Content="button2" Height="30" Margin="5"/>
+            <Button Background="Azure" Content="button3" Height="40" Margin="5"/>
+            <Button Background="Beige" Content="button4" Height="20" Width="150" Margin="5"/>
+            <Button Background="Bisque" Content="button5" Height="60" Width="250" Margin="5"/>
+        </WrapPanel>
+    </Grid>
+</Window>

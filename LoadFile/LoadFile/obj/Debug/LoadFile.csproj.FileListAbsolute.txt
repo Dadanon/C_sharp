@@ -1,0 +1,16 @@
+C:\C_sharp\LoadFile\LoadFile\bin\Debug\LoadFile.exe.config
+C:\C_sharp\LoadFile\LoadFile\bin\Debug\LoadFile.exe
+C:\C_sharp\LoadFile\LoadFile\bin\Debug\LoadFile.pdb
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.csproj.AssemblyReference.cache
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.csproj.SuggestedBindingRedirects.cache
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\MainWindow.g.cs
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\App.g.cs
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile_MarkupCompile.cache
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile_MarkupCompile.lref
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\MainWindow.baml
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.g.resources
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.Properties.Resources.resources
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.csproj.GenerateResource.cache
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.csproj.CoreCompileInputs.cache
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.exe
+C:\C_sharp\LoadFile\LoadFile\obj\Debug\LoadFile.pdb
